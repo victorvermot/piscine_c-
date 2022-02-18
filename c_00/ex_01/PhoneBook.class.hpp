@@ -10,10 +10,10 @@ class PhoneBook
 
 public:
 
-	Contact contacts[8];
-
 	PhoneBook();
 	~PhoneBook();
+
+	void display_options(void);
 
 private:
 };

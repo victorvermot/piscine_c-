@@ -6,16 +6,20 @@
 class Contact
 {
 
+private:
+	static int	contact_num;
+
 public:
 
 	Contact(void);
 	~Contact(void);
+	void get_infos(void);
 
-	char	*first_name;
-	char	*last_name;
-	char	*nickname;
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
 	int		phone_number;
-	char	*secret;
+	std::string	secret;
 };
 
 #endif
