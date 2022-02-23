@@ -9,7 +9,7 @@ Account::Account(int initial) : _amount(initial)
 {
     _displayTimestamp();
     std::cout << "index:" << this->_nbAccounts++
-    << ";amount:" << initial << ";created";
+    << ";amount:" << initial << ";created" << std::endl;
     return ;
 }
 
@@ -46,10 +46,13 @@ Account::~Account(void)
 // int		checkAmount( void ) const;
 // void	displayStatus( void ) const;
 
-static void	_displayTimestamp( void )
+void	Account::_displayTimestamp( void )
 {
     struct std::tm when;
-    std::get_time(&when,"%R");
-    std::cout << '[' << when.tm_year << when.tm_mon << when.tm_mday
+    time_t  now;
+
+    now = time(NULL);
+    when = *localtime(&now);
+    std::cout << '[' << when.tm_year + 1900 << when.tm_mon << when.tm_mday
     << '_' << when.tm_hour << when.tm_min << when.tm_sec << ']';
 }

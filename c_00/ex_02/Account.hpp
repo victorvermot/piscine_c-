@@ -12,8 +12,8 @@
 #ifndef __ACCOUNT_H__
 # define __ACCOUNT_H__
 
-# include <iostream>
-# include <iomanip>
+# include <iostream>     // std::cin, std::cout
+# include <iomanip>      // std::get_time
 # include <ctime>
 
 // ************************************************************************** //
@@ -40,6 +40,7 @@ public:
 	bool	makeWithdrawal( int withdrawal );
 	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
+    // static void	_displayTimestamp( void );
 
 
 private:
