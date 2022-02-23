@@ -15,7 +15,6 @@ public:
 
 	void display_options(void);
 	Contact	contacts[8];
-	void search(Contact contacts[8]);
 
 private:
 };
