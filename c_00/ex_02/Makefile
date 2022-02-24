@@ -1,6 +1,6 @@
 SRCS			= test.cpp Account.cpp
 OBJS			= ${SRCS:.c=.o}
-NAME            = phonebook
+NAME            =  bank
 CC				= c++
 RM              = rm -f
 

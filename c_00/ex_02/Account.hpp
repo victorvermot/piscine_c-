@@ -27,37 +27,36 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void );
+	static int	getNbAccounts( void ); // DONE
+	static int	getTotalAmount( void ); // DONE
+	static int	getNbDeposits( void ); // DONE
+	static int	getNbWithdrawals( void ); // DONE
+	static void	displayAccountsInfos( void ); // DONE
 
-	Account( int initial_deposit );
-	~Account( void );
+	Account( int initial_deposit ); // DONE
+	~Account( void ); // DONE
 
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
 	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
-    // static void	_displayTimestamp( void );
 
 
 private:
 
-	static int	_nbAccounts;
-	// static int	_totalAmount;
-	// static int	_totalNbDeposits;
-	// static int	_totalNbWithdrawals;
+	static int	_nbAccounts; // DONE
+	static int	_totalAmount; // DONE
+	static int	_totalNbDeposits; // DONE
+	static int	_totalNbWithdrawals; // DONE
 
-	static void	_displayTimestamp( void );
+	static void	_displayTimestamp( void ); // DONE
 
-	int				_accountIndex;
+	int				_accountIndex; // DONE
 	int				_amount;
 	int				_nbDeposits;
 	int				_nbWithdrawals;
 
-	Account( void );
+	// Account( void );
 
 };
 
