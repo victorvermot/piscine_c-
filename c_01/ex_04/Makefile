@@ -1,7 +1,7 @@
-SRCS			= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS			= main.cpp
 OBJS			= ${SRCS:.c=.o}
-NAME            = warriors
-CC				= c++
+NAME            = sed
+CC				= c++ -g
 RM              = rm -f
 
 CFLAGS          = -Wall -Wextra -Werror -std=c++98
