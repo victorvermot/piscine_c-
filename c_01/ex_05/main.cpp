@@ -2,12 +2,10 @@
 
 int main(void)
 {
-    void (Karen::*f)(std::string);
     Karen   instance;
 
-    f = &Karen::complain;
-    (instance.*f)("Debug");
-    (instance.*f)("Error");
-    (instance.*f)("Info");
-    (instance.*f)("Warning");
+    instance.complain("debug");
+    instance.complain("info");
+    instance.complain("warning");
+    instance.complain("error");
 }

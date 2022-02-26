@@ -7,19 +7,10 @@ void    pick_case(int level, void(Karen::*f)(std::string), Karen instance)
 	{
 	case DEBUG:
 		(instance.*f)("Debug");
-		(instance.*f)("Info");
-		(instance.*f)("Warning");
-		(instance.*f)("Error");
-		break ;
 	case INFO:
 		(instance.*f)("Info");
-		(instance.*f)("Warning");
-		(instance.*f)("Error");
-		break ;
 	case WARNING:
 		(instance.*f)("Warning");
-		(instance.*f)("Error");
-		break ;
 	case ERROR:
 		(instance.*f)("Error");
 		break ;

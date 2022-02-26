@@ -11,7 +11,7 @@ Karen::~Karen(void)
 }
 
 std::string Karen::_ft_to_upper(std::string str)
-	{
+{
 	int i;
 
 	i = -1;
@@ -49,13 +49,15 @@ void Karen::_error( void )
 
 void Karen::complain(std::string level)
 {
+	std::string names[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int	i;
+	my_function f[] = {&Karen::_debug, &Karen::_info, &Karen::_warning, &Karen::_error};
+
+	i = -1;
 	level = _ft_to_upper(level);
-	if (level == "DEBUG")
-		_debug();
-	else if (level == "INFO")
-		_info();
-	else if (level == "WARNING")
-		_warning();
-	else if (level == "ERROR")
-		_error();
+	while (++i < 4)
+	{
+		if (names[i] == level)
+			(this->*f[i])();
+	}
 }

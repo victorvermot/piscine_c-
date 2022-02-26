@@ -5,7 +5,7 @@
 std::string	ft_sed(std::string buffer, std::string s1, std::string s2)
 {
 	std::string ret;
-	size_t	pos;
+	size_t		pos;
 
 	if (s1.empty() || s2.empty())
 		return (buffer);

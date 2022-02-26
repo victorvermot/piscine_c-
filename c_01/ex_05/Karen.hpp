@@ -20,4 +20,6 @@ private:
 
 };
 
+typedef void (Karen::*my_function)(void);
+
 #endif
