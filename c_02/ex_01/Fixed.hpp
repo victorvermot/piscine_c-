@@ -19,4 +19,6 @@ private:
 	static const int _bitsNum = 8;
 };
 
+std::ostream& operator << (std::ostream& os, Fixed const & rhs);
+
 #endif

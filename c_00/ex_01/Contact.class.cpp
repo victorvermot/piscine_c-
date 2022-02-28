@@ -8,7 +8,7 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-	// std::cout << "Contact Destructor called." << std::endl;
+	std::cout << "Contact Destructor called." << std::endl;
 	return ;
 }
 
@@ -22,6 +22,12 @@ std::string	Contact::_get_lines(std::string msg)
 	std::getline(std::cin, buffer, '\n');
 	while (buffer.empty())
 	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(buffer.size());
+			return (buffer);
+		}
 		std::cout << "You must enter a valid string!"
 		<< std::endl << "Try again : ";
 		std::getline(std::cin, buffer, '\n');
@@ -31,17 +37,28 @@ std::string	Contact::_get_lines(std::string msg)
 
 void	Contact::get_infos()
 {
-	char	buffer;
+	//char	buffer;
 
-	std::cin.get(buffer);
-	this->_first_name = _get_lines( "Please enter first name : ");
-	this->_last_name =  _get_lines( "Please enter last name : ");
-	this->_nickname =  _get_lines( "Please enter nickname : ");
-	this->_phone_number =  _get_lines( "Please enter phone number : ");
-	this->_secret =  _get_lines( "Please enter secret : ");
-	std::cout << "The contact was succesfully created !" << std::endl;
 	if (_contact_num < 8)
 		_contact_num++;
+	else
+		this->~Contact();
+	this->_first_name = _get_lines( "Please enter first name : ");
+	if (this->_first_name.empty())
+		return ;
+	this->_last_name =  _get_lines( "Please enter last name : ");
+	if (this->_last_name.empty())
+		return ;
+	this->_nickname =  _get_lines( "Please enter nickname : ");
+	if (this->_nickname.empty())
+		return ;
+	this->_phone_number =  _get_lines( "Please enter phone number : ");
+	if (this->_phone_number.empty())
+		return ;
+	this->_secret =  _get_lines( "Please enter secret : ");
+	if (this->_secret.empty())
+		return ;
+	std::cout << "The contact was succesfully created !" << std::endl;
 }
 
 void Contact::_print_details(Contact contacts)
@@ -99,7 +116,7 @@ void Contact::search(Contact contacts[8])
 	}
 	while (++i < _contact_num)
 	{
-		std::cout << i + 1 << "|";
+		std::cout << "        " << i + 1 << "|";
 		_format_strings(contacts[i]._first_name);
 		_format_strings(contacts[i]._last_name);
 		_format_strings(contacts[i]._nickname);

@@ -22,8 +22,16 @@ int main(void)
 
 	i = 0;
 	phonebook.display_options();
-	while (std::cin >> option)
+	while (std::getline(std::cin, option, '\n'))
 	{
+		if (option.empty())
+		{
+			std::cout << "You must enter a valid string!"
+			<< std::endl << "Try again : ";
+			if (std::cin.fail())
+				return (1);
+			continue;
+		}
 		option = ft_to_upper(option);
 		if (option == "EXIT")
 			return (0);
