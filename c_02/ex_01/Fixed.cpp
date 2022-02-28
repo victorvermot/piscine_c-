@@ -7,6 +7,21 @@ Fixed::Fixed()
 	return ;
 }
 
+Fixed::Fixed(const int x) : _fixedValue(x)
+{
+	std::cout << "Default constructor called" << std::endl;
+	// _fixedValue = toFloat();
+	return ;
+}
+
+Fixed::Fixed(const float x) : _fixedValue(x)
+{
+	std::cout << "Default constructor called" << std::endl;
+	_fixedValue = toInt();
+	return ;
+}
+
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
@@ -15,20 +30,28 @@ Fixed::~Fixed(void)
 
 Fixed::Fixed(const Fixed& other)
 {
-
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_fixedValue);
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	_fixedValue = raw;
+}
+
+int Fixed::toInt( void ) const
+{
+	return (_fixedValue * (1 << _bitsNum));
+}
+
+float Fixed::toFloat( void ) const
+{
+	return ((float)_fixedValue / (float)(1 << _bitsNum));
 }
 
 // Operator overload:
