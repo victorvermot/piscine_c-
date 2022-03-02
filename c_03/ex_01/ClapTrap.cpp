@@ -16,8 +16,8 @@ void ClapTrap::attack(const std::string & target)
 {
 	if (_energy_pts && _hitpoints)
 	{
-		std::cout << "Claptrap " << this->_name << "attacks" << target << "dealing "
-		<< this->_attack_dmg << "points of dmg" << std::endl;
+		std::cout << "Claptrap " << this->_name << " attacks " << target << " dealing "
+		<< this->_attack_dmg << " points of dmg" << std::endl;
 		_energy_pts--;
 	}
 	else
@@ -28,7 +28,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_energy_pts && _hitpoints)
 	{
-		std::cout << "Claptrap " << this->_name << "takes" << amount << "damage" << std::endl;
+		std::cout << "Claptrap " << this->_name << " takes " << amount << " damage" << std::endl;
 		_energy_pts--;
 		_hitpoints -= amount;
 	}
@@ -40,7 +40,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_energy_pts && _hitpoints)
 	{
-		std::cout << "Claptrap " << this->_name << "heals itself for " << amount << "hp." << std::endl;
+		std::cout << "Claptrap " << this->_name << " heals itself for " << amount << " hp." << std::endl;
 		_energy_pts--;
 		_hitpoints += amount;
 	}
