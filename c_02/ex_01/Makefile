@@ -4,7 +4,7 @@ NAME            = fixed
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}

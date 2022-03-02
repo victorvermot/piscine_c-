@@ -2,6 +2,7 @@
 # define FIXED_H
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
@@ -17,9 +18,10 @@ public:
 	void setRawBits(int const raw);
 	float toFloat( void ) const;
 	int toInt( void ) const;
+	static int ft_pow(const int num);
 
 private:
-	int _fixedValue;
+	int	_fixedValue;
 	static const int _bitsNum = 8;
 };
 

@@ -1,10 +1,10 @@
-SRCS			= main.cpp Fixed.cpp
+SRCS			= main.cpp Fixed.cpp Fixed_operator.cpp Point.cpp
 OBJS			= ${SRCS:.c=.o}
 NAME            = fixed
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}

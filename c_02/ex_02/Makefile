@@ -1,6 +1,6 @@
 SRCS			= main.cpp Fixed.cpp Fixed_operator.cpp
 OBJS			= ${SRCS:.c=.o}
-NAME            = fixed
+NAME            = fixed_enhanced
 CC				= c++ -g
 RM              = rm -f
 
