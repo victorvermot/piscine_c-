@@ -1,8 +1,14 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+	std::cout << "ClapTrap basic constructor called" << std::endl;
+	return ;
+}
+
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(HP), _energy_pts(EP), _attack_dmg(AD)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << "ClapTrap string constructor called" << std::endl;
 	return ;
 }
 
@@ -10,39 +16,6 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap destructor called" << std::endl;
 	return ;
-}
-
-ClapTrap::ClapTrap(const ClapTrap& other)
-{
-	std::cout << "Copy constructor called." << std::endl;
-	*this = other;
-	
-}
-
-ClapTrap& ClapTrap::operator = (const ClapTrap& rhs)
-{
-	if (this != &rhs)
-	{
-		this->_attack_dmg = rhs.getAttackDmg();
-		this->_hitpoints = rhs.getHitPoints();
-		this->_energy_pts = rhs.getEnergyPoints();
-	}
-	return (*this);
-}
-
-int ClapTrap::getAttackDmg() const
-{
-	return (_attack_dmg);
-}
-
-int ClapTrap::getHitPoints() const
-{
-	return (_hitpoints);
-}
-
-int ClapTrap::getEnergyPoints() const
-{
-	return (_energy_pts);
 }
 
 void ClapTrap::attack(const std::string & target)

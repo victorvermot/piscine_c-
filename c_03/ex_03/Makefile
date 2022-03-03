@@ -1,10 +1,10 @@
-SRCS			= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS			= main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 OBJS			= ${SRCS:.c=.o}
-NAME            = scavtrap
+NAME            = diamonds
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address -Wshadow -Wno-shadow
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}
@@ -18,7 +18,7 @@ ${NAME}:	${OBJS}
 clean:
 			${RM} ${OBJS}
 
-fclean:         clean
+fclean:     clean
 			${RM} ${NAME}
 
 re:			fclean all

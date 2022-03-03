@@ -11,17 +11,18 @@
 # undef AD
 # define AD 20
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 private:
-    /* data */
+    // std::string _name;
 public:
+    ScavTrap();
     ScavTrap(std::string name);
+    ScavTrap(const ScavTrap& other);
     ~ScavTrap(void);
+    // ScavTrap& operator = (const ScavTrap& rhs);
+    // std::string getName() const;
     void guardGate();
 };
-
-
-
 
 #endif

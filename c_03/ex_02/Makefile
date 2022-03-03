@@ -1,6 +1,6 @@
-SRCS			= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS			= main.cpp ClapTrap.cpp FragTrap.cpp
 OBJS			= ${SRCS:.c=.o}
-NAME            = scavtrap
+NAME            = frags
 CC				= c++ -g
 RM              = rm -f
 

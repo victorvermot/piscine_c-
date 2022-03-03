@@ -1,7 +1,11 @@
 #ifndef CLAPTRAP_H
-# define CLAPTRAP
+# define CLAPTRAP_H
 
 # include <iostream>
+
+# define HP 10
+# define EP 10
+# define AD 0
 
 class ClapTrap
 {
@@ -13,7 +17,12 @@ private:
 public:
 
     ClapTrap(std::string name);
+    ClapTrap(const ClapTrap& other);
     ~ClapTrap();
+    int getAttackDmg() const;
+    int getHitPoints() const;
+    int getEnergyPoints() const;
+	ClapTrap& operator = (const ClapTrap& rhs);
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);

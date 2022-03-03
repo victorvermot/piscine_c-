@@ -1,17 +1,24 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap()
 {
-	_hitpoints = HP;
-	_energy_pts = EP;
-	_attack_dmg = AD;
-
-	std::cout << "ScavTrap constructor called" << std::endl;
+	std::cout << "ScavTrap copy constructor called." << std::endl;
+	return ;
+}
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, HP, EP, AD)
+{
+	std::cout << "ScavTrap string constructor called" << std::endl;
 	std::cout << name << std::endl;
 	std::cout << _hitpoints << std::endl;
 	std::cout << _energy_pts << std::endl;
 	std::cout << _attack_dmg << std::endl;
 	return ;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+{
+	_name = other.getName();
+	*this = other;
 }
 
 ScavTrap::~ScavTrap(void)

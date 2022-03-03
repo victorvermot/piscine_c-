@@ -17,16 +17,15 @@ protected:
 public:
 
     ClapTrap(std::string name);
-    ClapTrap(const ClapTrap& other);
+    ClapTrap();
     ~ClapTrap();
-    int getAttackDmg() const;
-    int getHitPoints() const;
-    int getEnergyPoints() const;
-	ClapTrap& operator = (const ClapTrap& rhs);
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
 };
+
+
+
 
 #endif
