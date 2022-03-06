@@ -10,8 +10,10 @@ class Dog : public Animal
 public:
     Dog();
     ~Dog();
+    Dog(Dog& other);
     void makeSound() const;
     Brain *cerveau;
+    Dog& operator = (Dog& rhs);
 };
 
 #endif
