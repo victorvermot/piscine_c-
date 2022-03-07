@@ -1,10 +1,12 @@
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Cat.hpp"
 # include "Dog.hpp"
 
 int main()
 {
-    const Animal* j[10];
+    // Line 8 is illegal, as the class is abstract
+    AAnimal lol();
+    const AAnimal* j[10];
     for (int i = 0; i < 10; i++)
     {
         if (i < 6)

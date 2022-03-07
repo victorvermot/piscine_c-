@@ -7,17 +7,17 @@
 # define WHITE "\033[0m"
 
 
-class Animal
+class AAnimal
 {
 public:
 
-    Animal();
-    virtual ~Animal();
-    Animal(std::string name);
-    Animal(Animal& other);
-    virtual void makeSound() const;
+    AAnimal();
+    virtual ~AAnimal();
+    AAnimal(std::string name);
+    AAnimal(AAnimal& other);
+    virtual void makeSound() const = 0;
     std::string    getType() const;
-    Animal& operator = (const Animal& rhs);
+    AAnimal& operator = (const AAnimal& rhs);
 
 protected:
     std::string type;

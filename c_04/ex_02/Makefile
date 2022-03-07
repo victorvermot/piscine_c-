@@ -1,4 +1,4 @@
-SRCS			= main.cpp Cat.cpp Dog.cpp Animal.cpp Brain.cpp
+SRCS			= main.cpp Cat.cpp Dog.cpp AAnimal.cpp Brain.cpp
 OBJS			= ${SRCS:.c=.o}
 NAME            = animals
 CC				= c++ -g

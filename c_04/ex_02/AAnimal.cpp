@@ -1,41 +1,41 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
     std::cout << "Animal constructor called" << std::endl;
     return ;
 }
 
-Animal::Animal(std::string name) : type(name)
+AAnimal::AAnimal(std::string name) : type(name)
 {
     std::cout << GREEN "Animal string constructor called" << std::endl;
     return ;
 }
 
-Animal::Animal(Animal& other)
+AAnimal::AAnimal(AAnimal& other)
 {
     std::cout << "Animal copy constructor called" << std::endl;
     *this = other;
     return ;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
     std::cout << RED "Animal Destructor called" << std::endl;
     return ;
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
     return (type);
 }
 
-void Animal::makeSound() const
+void AAnimal::makeSound() const
 {
     std::cout << "I make noise" << std::endl;
 }
 
-Animal& Animal::operator = (const Animal& rhs)
+AAnimal& AAnimal::operator = (const AAnimal& rhs)
 {
     std::cout << "Equal operator overload called" << std::endl;
     if (this != &rhs)

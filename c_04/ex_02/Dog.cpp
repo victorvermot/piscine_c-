@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : AAnimal("Dog")
 {
     std::cout << "Dog constructor called" << std::endl;
     cerveau = new Brain();
@@ -29,7 +29,7 @@ Dog& Dog::operator = (Dog& rhs)
     return (*this);
 }
 
-Dog::Dog(Dog& other) : Animal("Dog")
+Dog::Dog(Dog& other) : AAnimal("Dog")
 {
     *this = other;
 }
