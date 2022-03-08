@@ -5,13 +5,18 @@ ScavTrap::ScavTrap()
 	std::cout << "ScavTrap copy constructor called." << std::endl;
 	return ;
 }
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, HP, EP, AD)
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _ad(AD), _hp(HP), _ep(EP), _mhp(HP), _n(name)
 {
+	_name = name;
+	_hitpoints = _hp;
+	_energy_pts = _ep;
+	_max_hp = _mhp;
 	std::cout << "ScavTrap string constructor called" << std::endl;
 	std::cout << name << std::endl;
-	std::cout << _hitpoints << std::endl;
-	std::cout << _energy_pts << std::endl;
-	std::cout << _attack_dmg << std::endl;
+	std::cout << _hp << std::endl;
+	std::cout << _ep << std::endl;
+	std::cout << _ad << std::endl;
 	return ;
 }
 
@@ -31,7 +36,7 @@ void ScavTrap::guardGate(void)
 {
 	if (_hitpoints && _energy_pts)
 	{
-		std::cout << "Scavtrap " << _name << " has entered gatekeeping mode ! ";
+		std::cout << "Scavtrap " << _n << " has entered gatekeeping mode ! ";
 		_energy_pts--;
 	}
 	else

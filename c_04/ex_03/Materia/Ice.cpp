@@ -12,7 +12,7 @@ Ice::~Ice()
     return ;
 }
 
-Ice* Ice::clone() const
+AMateria* Ice::clone() const
 {
     Ice* ret = new Ice();
     return (ret);

@@ -13,17 +13,19 @@
 
 class FragTrap : virtual public ClapTrap
 {
-private:
-    /* data */
+protected:
+    int _ad;
+    int _hp;
+    int _ep;
+    int _mhp;
+    std::string _n;
 public:
     FragTrap();
     FragTrap(std::string name);
     FragTrap(const FragTrap& other);
     ~FragTrap(void);
     void highFivesGuys();
+    // virtual void attack(const std::string& target);
 };
-
-
-
 
 #endif

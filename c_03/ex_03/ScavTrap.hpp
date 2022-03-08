@@ -13,8 +13,12 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-private:
-    // std::string _name;
+protected:
+    int _ad;
+    int _hp;
+    int _ep;
+    int _mhp;
+    std::string _n;
 public:
     ScavTrap();
     ScavTrap(std::string name);

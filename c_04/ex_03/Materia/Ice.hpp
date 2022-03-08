@@ -1,8 +1,10 @@
-#ifndef MATERIA_H
-# define MATERIA_H
+class Ice;
+
+#ifndef ICE_H
+# define ICE_H
 
 # include <iostream>
-# include "AMateria.hpp"
+# include <AMateria.hpp>
 
 class Ice : public AMateria
 {
@@ -10,7 +12,7 @@ public:
 
     Ice();
     ~Ice();
-    Ice* clone() const;
+    virtual AMateria* clone() const;
     void use(ICharacter& target);
 
 };

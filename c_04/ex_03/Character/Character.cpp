@@ -1,4 +1,6 @@
-#include "../Character/Character.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int Character::index = 0;
 

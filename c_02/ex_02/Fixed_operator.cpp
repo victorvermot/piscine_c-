@@ -32,9 +32,8 @@ Fixed Fixed::operator / (const Fixed& rhs) const
 
 Fixed Fixed::operator ++ ()
 {
-	Fixed temp;
-    temp._fixedValue = ++this->_fixedValue;
-    return (temp);
+    ++this->_fixedValue;
+    return (*this);
 }
 
 Fixed Fixed::operator ++ (int)
@@ -46,15 +45,14 @@ Fixed Fixed::operator ++ (int)
 
 Fixed Fixed::operator -- ()
 {
-    Fixed temp;
-    temp._fixedValue = this->_fixedValue--;
-    return (temp);
+	--this->_fixedValue;
+    return (*this);
 }
 
 Fixed Fixed::operator -- (int)
 {
 	Fixed temp;
-    temp._fixedValue = --this->_fixedValue;
+    temp._fixedValue = this->_fixedValue--;
     return (temp);
 }
 

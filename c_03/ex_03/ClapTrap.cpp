@@ -6,10 +6,9 @@ ClapTrap::ClapTrap()
 	return ;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(HP), _energy_pts(EP), _attack_dmg(AD)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(HP), _energy_pts(EP), _attack_dmg(AD),  _max_hp(HP)
 {
 	std::cout << "ClapTrap string constructor called" << std::endl;
-	_max_hp = _hitpoints;
 	return ;
 }
 
@@ -51,7 +50,8 @@ ClapTrap& ClapTrap::operator = (const ClapTrap& rhs)
 		this->_attack_dmg = rhs.getAttackDmg();
 		this->_hitpoints = rhs.getHitPoints();
 		this->_energy_pts = rhs.getEnergyPoints();
-		this->_max_hp = rhs._max_hp;
+		this->_max_hp = rhs.getMaxHp();
+		this->_name = rhs._name;
 	}
 	return (*this);
 }
@@ -76,8 +76,14 @@ std::string ClapTrap::getName() const
 	return (_name);
 }
 
+int ClapTrap::getMaxHp() const
+{
+	return (_max_hp);
+}
+
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	std::cout << "MY NAME IS " << _name << std::endl;
 	if (_energy_pts && _hitpoints)
 	{
 		std::cout << "Claptrap " << this->_name << " takes " << amount << " damage " << std::endl;
@@ -98,7 +104,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "Claptrap " << this->_name << " heals itself for " << amount << " hp." << std::endl;
 		_energy_pts--;
 		_hitpoints += amount;
-		std::cout << "Max HP : " << _max_hp;
+		std::cout << "Max HP : " << _max_hp << std::endl;
 		if (_hitpoints > _max_hp)
 			_hitpoints = _max_hp;
 		std::cout << "Claptrap " << this->_name << " has now " << _hitpoints << " hp." << std::endl;

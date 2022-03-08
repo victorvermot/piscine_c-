@@ -14,6 +14,7 @@ protected:
     int _hitpoints;
     int _energy_pts;
     int _attack_dmg;
+    int _max_hp;
 public:
 
     ClapTrap(std::string name);

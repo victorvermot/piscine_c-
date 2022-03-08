@@ -22,6 +22,7 @@ public:
     ClapTrap(std::string name, int hp, int ep, int ad);
     ClapTrap();
     ~ClapTrap();
+    int getMaxHp() const;
     int getAttackDmg() const;
     int getHitPoints() const;
     int getEnergyPoints() const;

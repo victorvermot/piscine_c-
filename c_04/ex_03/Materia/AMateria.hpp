@@ -1,8 +1,9 @@
+class AMateria;
+
 #ifndef AMATERIA_H
 # define AMATERIA_H
 
-# include <iostream>
-# include "../Character/ICharacter.hpp"
+# include <ICharacter.hpp>
 
 class AMateria
 {

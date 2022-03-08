@@ -6,15 +6,31 @@ DiamondTrap::DiamondTrap()
     return ;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name), _name(name)
+DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name)
 {
     std::cout << "DiamondTrap string constructor called" << std::endl;
     std::cout << FragTrap::_name << std::endl;
-    _hitpoints = FragTrap::_hitpoints;
-    _max_hp = FragTrap::_hitpoints;
-    _energy_pts = ScavTrap::_energy_pts;
-    _attack_dmg = FragTrap::_attack_dmg;
+    _name = name;
+    _hitpoints = FragTrap::_hp;
+    _max_hp = FragTrap::_hp;
+    _energy_pts = ScavTrap::_ep;
+    _attack_dmg = FragTrap::_ad;
+    std::cout << "les dmg de fragtrap "<< FragTrap::_attack_dmg << std::endl;
     ClapTrap::_name = name + "_clap_name";
+}
+
+DiamondTrap& DiamondTrap::operator = (const DiamondTrap& rhs)
+{
+    std::cout << "Diamond Operator overload called : " << std::endl;
+	if (this != &rhs)
+	{
+		this->_attack_dmg = rhs._attack_dmg;
+		this->_hitpoints = rhs._hitpoints;
+		this->_energy_pts = rhs._energy_pts;
+		this->_max_hp = rhs._hitpoints;
+        this->_name = rhs._name;
+	}
+	return (*this);
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap& other) : ClapTrap(other)
@@ -32,7 +48,6 @@ DiamondTrap::~DiamondTrap()
 void DiamondTrap::attack(const std::string& target)
 {
     FragTrap::attack(target);
-    std::cout << FragTrap::_name << std::endl;
 }
 
 void DiamondTrap::whoAmI()

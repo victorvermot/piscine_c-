@@ -6,13 +6,17 @@ FragTrap::FragTrap()
 	return ;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, HP, EP, AD)
+FragTrap::FragTrap(std::string name) : ClapTrap(name), _ad(AD), _hp(HP), _ep(EP), _mhp(HP), _n(name)
 {
+	_name = name;
+	_hitpoints = _hp;
+	_energy_pts = _ep;
+	_max_hp = _mhp;
 	std::cout << "FragTrap string constructor called" << std::endl;
 	std::cout << name << std::endl;
-	std::cout << _hitpoints << std::endl;
-	std::cout << _energy_pts << std::endl;
-	std::cout << _attack_dmg << std::endl;
+	std::cout << _hp << std::endl;
+	std::cout << _ep << std::endl;
+	std::cout << _ad << std::endl;
 	return ;
 }
 

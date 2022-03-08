@@ -10,7 +10,6 @@ AMateria::AMateria(std::string const & type) : _type(type)
     return ;
 }
 
-
 AMateria::AMateria(AMateria& other)
 {
     *this = other;

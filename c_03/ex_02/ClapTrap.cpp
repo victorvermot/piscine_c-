@@ -52,8 +52,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "Claptrap " << this->_name << " heals itself for " << amount << " hp." << std::endl;
 		_energy_pts--;
 		_hitpoints += amount;
-		if (_hitpoints > HP)
-			_hitpoints = HP;
+		if (_hitpoints > _max_hp)
+			_hitpoints = _max_hp;
 		std::cout << "Claptrap " << this->_name << " has now " << _hitpoints << " hp." << std::endl;
 	}
 	else
