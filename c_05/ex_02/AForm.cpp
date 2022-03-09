@@ -1,23 +1,23 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form()
+AForm::AForm()
 {
     return ;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
     return ;
 }
 
-Form::Form(std::string name, int grade_sign, int grade_exe) : _name(name)
+AForm::AForm(std::string name, int grade_sign, int grade_exe) : _name(name)
 {
     try
     {
         if (grade_exe > 150 || grade_sign > 150)
-            throw Form::GradeTooHighExceptions();
+            throw AForm::GradeTooHighExceptions();
         if (grade_exe < 1 || grade_sign < 1)
-            throw Form::GradeTooLowExceptions();
+            throw AForm::GradeTooLowExceptions();
         else
         {
             _grade_to_exe = grade_exe;
@@ -25,59 +25,72 @@ Form::Form(std::string name, int grade_sign, int grade_exe) : _name(name)
             _isSigned = 0;
         }
     }
-    catch(const Form::GradeTooHighExceptions& e)
+    catch(const AForm::GradeTooHighExceptions& e)
     {
         std::cerr << e.what() << std::endl;
     }
-    catch(const Form::GradeTooLowExceptions& e)
+    catch(const AForm::GradeTooLowExceptions& e)
     {
         std::cerr << e.what() << std::endl;
     }
 }
 
-int  Form::getGradeToSigne() const
+int  AForm::getGradeToSigne() const
 {
     return (this->_grade_to_sign);
 }
 
-void Form::beSigned(const Bureaucrat worker)
+void AForm::beSigned(const Bureaucrat worker)
 {
     try
     {
         if (worker.getGrade() <= this->getGradeToSigne())
+        {
+            std::cout << "The form is now signed." << std::endl;
             this->_isSigned = 1;
+        }
         else
         {
-            throw Form::GradeTooLowExceptions();
+            throw AForm::GradeTooLowExceptions();
         }
     }
-    catch(const Form::GradeTooLowExceptions& e)
+    catch(const AForm::GradeTooLowExceptions& e)
     {
         std::cerr << e.what() << std::endl;
     }
 }
 
-void Form::setIsSigned(bool result)
+void AForm::setIsSigned(bool result)
 {
     this->_isSigned = result;
 }
 
-int  Form::getGradeToExe() const
+int  AForm::getGradeToExe() const
 {
     return (this->_grade_to_exe);
 }
 
-std::string  Form::getName() const
+std::string  AForm::getName() const
 {
     return (this->_name);
 }
 
-bool  Form::getIsSigned() const
+bool  AForm::getIsSigned() const
 {
     return (this->_isSigned);
 }
 
-std::ostream& operator << (std::ostream& os, Form const & rhs)
+void AForm::setGradeToSigne(int new_grade)
+{
+    this->_grade_to_sign = new_grade;
+}
+
+void AForm::setGradeToExe(int new_grade)
+{
+    this->_grade_to_exe = new_grade;
+}
+
+std::ostream& operator << (std::ostream& os, AForm const & rhs)
 {
     os << "Le formulaire : " <<  rhs.getName() << std::endl
     << "Etat de la signature : " << rhs.getIsSigned() << std::endl
