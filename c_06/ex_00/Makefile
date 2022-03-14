@@ -1,10 +1,10 @@
-SRCS			= AForm.cpp main.cpp ShrubberyCreationForm.cpp Bureaucrat.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS			= main.cpp
 OBJS			= ${SRCS:.c=.o}
-NAME            = bureau
+NAME            = casting
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address -I . -I ./Character/ -I ./Materia/
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}

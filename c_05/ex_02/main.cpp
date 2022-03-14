@@ -1,14 +1,21 @@
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
 int main()
 {
-    Bureaucrat Yvan(5, "Yvan");
-    std::string test = "test";
+    Bureaucrat Boss(5, "Boss");
     // ShrubberyCreationForm lol("Bernard");
     // lol.action("test2");
 
     RobotomyRequestForm lol("Bernard");
-    lol.beSigned(Yvan);
-    lol.execute(Yvan);
+    lol.beSigned(Boss);
+    Boss.executeForm(lol);
+    lol.execute(Boss);
+
+    Bureaucrat Larbin(150, "Larbin");
+    PresidentialPardonForm presi("Bernard");
+    presi.beSigned(Larbin);
+    Larbin.executeForm(lol);
+    presi.execute(Boss);
 }

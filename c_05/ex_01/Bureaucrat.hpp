@@ -19,7 +19,7 @@ public:
     void promotion();
     void demotion();
 
-    class GradeTooHighExceptions
+    class GradeTooHighExceptions : public std::exception
     {
         public:
             virtual const char* what() const throw()
@@ -28,7 +28,7 @@ public:
             }
     };
 
-    class GradeTooLowExceptions
+    class GradeTooLowExceptions : public std::exception
     {
         public:
             virtual const char* what() const throw()
