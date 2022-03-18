@@ -1,4 +1,4 @@
-SRCS			= main.cpp print.cpp get_types.cpp
+SRCS			= main.cpp conversion.cpp
 OBJS			= ${SRCS:.c=.o}
 NAME            = casting
 CC				= c++ -g
