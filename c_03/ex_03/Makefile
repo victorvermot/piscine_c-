@@ -1,13 +1,13 @@
 SRCS			= main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
-OBJS			= ${SRCS:.c=.o}
+OBJS			= ${SRCS:.cpp=.o}
 NAME            = diamonds
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address -Wshadow -Wno-shadow
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address -Wshadow -Wno-shadow
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}
+			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o} ${HEADS}
 
 all:		${NAME}
 

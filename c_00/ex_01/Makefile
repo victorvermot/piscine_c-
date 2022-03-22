@@ -1,13 +1,13 @@
 SRCS			= main.cpp Contact.class.cpp PhoneBook.class.cpp
-OBJS			= ${SRCS:.c=.o}
+OBJS			= ${SRCS:.cpp=.o}
 NAME            = phonebook
 CC				= c++
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98
+CFLAGS          = -Wall -Wextra -Werror -pedantic -std=c++98
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}
+			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
 
 all:		${NAME}
 

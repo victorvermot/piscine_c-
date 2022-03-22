@@ -1,14 +1,14 @@
 SRCS			= ${addprefix ./Character/, Character.cpp} ${addprefix ./Materia/, Cure.cpp Ice.cpp  AMateria.cpp} main.cpp
 # SRCS			= Character.cpp Cure.cpp Ice.cpp  AMateria.cpp
-OBJS			= ${SRCS:.c=.o}
+OBJS			= ${SRCS:.cpp=.o}
 NAME            = diamonds
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address -I . -I ./Character/ -I ./Materia/
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address -I . -I ./Character/ -I ./Materia/
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}
+			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o} ${HEADS}
 
 all:		${NAME}
 

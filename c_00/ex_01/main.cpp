@@ -7,10 +7,7 @@ std::string	ft_to_upper(std::string str)
 
 	i = -1;
 	while (str[++i])
-	{
-		if (str[i] > 96 && str[i] < 123)
-			str[i] = str[i] - 32;
-	}
+		str[i] = toupper(str[i]);
 	return (str);
 }
 
@@ -24,14 +21,6 @@ int main(void)
 	phonebook.display_options();
 	while (std::getline(std::cin, option, '\n'))
 	{
-		if (option.empty())
-		{
-			std::cout << "You must enter a valid string!"
-			<< std::endl << "Try again : ";
-			if (std::cin.fail())
-				return (1);
-			continue;
-		}
 		option = ft_to_upper(option);
 		if (option == "EXIT")
 			return (0);
@@ -43,6 +32,7 @@ int main(void)
 			std::cout << "Please enter a valid option" << std::endl << "- ";
 		if (i == 8)
 			i = 0;
+		std::cin.clear();
 		phonebook.display_options();
 	}
 	return (0);

@@ -1,13 +1,13 @@
 SRCS			= main.cpp conversion.cpp
-OBJS			= ${SRCS:.c=.o}
+OBJS			= ${SRCS:.cpp=.o}
 NAME            = casting
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}
+			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o} ${HEADS}
 
 all:		${NAME}
 

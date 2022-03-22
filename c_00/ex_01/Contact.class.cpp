@@ -8,7 +8,7 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-	std::cout << "Contact Destructor called." << std::endl;
+	// std::cout << "Contact Destructor called." << std::endl;
 	return ;
 }
 
@@ -20,6 +20,12 @@ std::string	Contact::_get_lines(std::string msg)
 
 	std::cout << msg;
 	std::getline(std::cin, buffer, '\n');
+	int	i = -1;
+	while (isspace(buffer[++i]))
+	{
+		std::cout << "My buffered space is " << buffer[i] << std::endl;
+		buffer.erase(i, i + 1);
+	}
 	while (buffer.empty())
 	{
 		if (std::cin.fail())
@@ -37,27 +43,13 @@ std::string	Contact::_get_lines(std::string msg)
 
 void	Contact::get_infos()
 {
-	//char	buffer;
-
 	if (_contact_num < 8)
 		_contact_num++;
-	else
-		this->~Contact();
 	this->_first_name = _get_lines( "Please enter first name : ");
-	if (this->_first_name.empty())
-		return ;
 	this->_last_name =  _get_lines( "Please enter last name : ");
-	if (this->_last_name.empty())
-		return ;
 	this->_nickname =  _get_lines( "Please enter nickname : ");
-	if (this->_nickname.empty())
-		return ;
 	this->_phone_number =  _get_lines( "Please enter phone number : ");
-	if (this->_phone_number.empty())
-		return ;
 	this->_secret =  _get_lines( "Please enter secret : ");
-	if (this->_secret.empty())
-		return ;
 	std::cout << "The contact was succesfully created !" << std::endl;
 }
 

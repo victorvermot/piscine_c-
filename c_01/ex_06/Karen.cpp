@@ -10,18 +10,16 @@ Karen::~Karen(void)
 	return ;
 }
 
-std::string Karen::_ft_to_upper(std::string str)
-	{
+std::string	Karen::_ft_to_upper(std::string str)
+{
 	int i;
 
 	i = -1;
 	while (str[++i])
-	{
-		if (str[i] > 96 && str[i] < 123)
-			str[i] = str[i] - 32;
-	}
+		str[i] = toupper(str[i]);
 	return (str);
 }
+
 
 void Karen::_debug( void )
 {

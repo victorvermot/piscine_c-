@@ -1,13 +1,13 @@
 SRCS			= main.cpp Zombie.cpp ZombieHorde.cpp
-OBJS			= ${SRCS:.c=.o}
+OBJS			= ${SRCS:.cpp=.o}
 NAME            = horde
 CC				= c++
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${HEADS}
+			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o} ${HEADS}
 
 all:		${NAME}
 
