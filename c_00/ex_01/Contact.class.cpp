@@ -14,18 +14,31 @@ Contact::~Contact(void)
 
 int	Contact::_contact_num = 0;
 
+char	*ft_whitespace(std::string buffer)
+{
+	char *ret;
+	int	 i;
+	int	 j;
+
+	ret = new char(buffer.size());
+	i = 0;
+	j = 0;
+	while (buffer[i])
+	{
+		if (!isspace(buffer[i]))
+			ret[j++] = buffer[i];
+		i++;
+	}
+	return (ret);
+}
+
 std::string	Contact::_get_lines(std::string msg)
 {
 	std::string	buffer;
 
 	std::cout << msg;
 	std::getline(std::cin, buffer, '\n');
-	int	i = -1;
-	while (isspace(buffer[++i]))
-	{
-		std::cout << "My buffered space is " << buffer[i] << std::endl;
-		buffer.erase(i, i + 1);
-	}
+	buffer = ft_whitespace(buffer);
 	while (buffer.empty())
 	{
 		if (std::cin.fail())
