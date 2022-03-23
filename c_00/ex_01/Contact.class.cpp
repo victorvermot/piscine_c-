@@ -14,7 +14,7 @@ Contact::~Contact(void)
 
 int	Contact::_contact_num = 0;
 
-char	*ft_whitespace(std::string buffer)
+char	*Contact::_ft_whitespace(std::string buffer)
 {
 	char *ret;
 	int	 i;
@@ -38,7 +38,7 @@ std::string	Contact::_get_lines(std::string msg)
 
 	std::cout << msg;
 	std::getline(std::cin, buffer, '\n');
-	buffer = ft_whitespace(buffer);
+	buffer = _ft_whitespace(buffer);
 	while (buffer.empty())
 	{
 		if (std::cin.fail())
@@ -68,11 +68,11 @@ void	Contact::get_infos()
 
 void Contact::_print_details(Contact contacts)
 {
-	std::cout << contacts._first_name << std::endl
-	<< contacts._last_name << std::endl
-	<< contacts._nickname << std::endl
-	<< contacts._phone_number << std::endl
-	<< contacts._secret << std::endl;
+	std::cout << "\e[1mFirst name : \e[0m"<< contacts._first_name << std::endl
+	<< "\e[1mLast name : \e[0m" << contacts._last_name << std::endl
+	<< "\e[1mNickname : \e[0m" << contacts._nickname << std::endl
+	<< "\e[1mPhone Number : \e[0m" << contacts._phone_number << std::endl
+	<< "\e[1mSecret : \e[0m" <<contacts._secret << std::endl;
 }
 
 int	Contact::_ft_strlen(std::string str)
@@ -92,7 +92,7 @@ void Contact::_format_strings(std::string str)
 
 	i = 0;
 	len = _ft_strlen(str);
-	while (i + len < 10)
+	while (i + len <= 10)
 	{
 		std::cout << ' ';
 		i++;
@@ -114,6 +114,7 @@ void Contact::search(Contact contacts[8])
 	int	choice;
 
 	i = -1;
+	choice = 0;
 	if (!_contact_num)
 	{
 		std::cout << "Please add an entry first.\n";
@@ -129,8 +130,16 @@ void Contact::search(Contact contacts[8])
 	}
 	std::cout << "Chose an entry to get all its details : ";
 	std::cin >> choice;
-	if (!choice || choice > _contact_num)
-		std::cout << "Invalid index\n";
-	else
-		_print_details(contacts[choice - 1]);
+	while ((std::cin.fail() || !choice || choice > _contact_num))
+	{
+		if (std::cin.eof())
+			return ;
+        std::cout << "Invalid input : Try again : ";
+        std::cin.clear();
+        std::cin.ignore(256,'\n');
+        std::cin >> choice;
+    }
+	_print_details(contacts[choice - 1]);
+	std::cin.ignore(256, '\n');
+	std::cin.clear();
 }

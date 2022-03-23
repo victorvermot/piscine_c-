@@ -19,8 +19,12 @@ int main(void)
 
 	i = 0;
 	phonebook.display_options();
-	while (std::getline(std::cin, option, '\n'))
+	while (std::cin >> option)
 	{
+		if (std::cin.eof())
+			return (0);
+		std::cin.clear();
+		std::cin.ignore(256,'\n');
 		option = ft_to_upper(option);
 		if (option == "EXIT")
 			return (0);
@@ -32,7 +36,8 @@ int main(void)
 			std::cout << "Please enter a valid option" << std::endl << "- ";
 		if (i == 8)
 			i = 0;
-		std::cin.clear();
+		if (std::cin.eof())
+			return (0);
 		phonebook.display_options();
 	}
 	return (0);

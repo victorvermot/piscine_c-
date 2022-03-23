@@ -12,6 +12,7 @@ private:
 	void _print_details(Contact contact);
 	int	_ft_strlen(std::string str);
 	std::string _get_lines(std::string msg);
+	char	*_ft_whitespace(std::string buffer);
 	std::string	_nickname;
 	std::string	_first_name;
 	std::string	_last_name;
