@@ -17,8 +17,9 @@ std::string	ft_sed(std::string buffer, std::string s1, std::string s2)
 			ret += buffer.substr(0, pos);
 			ret += s2;
 			buffer.erase(0, pos + s1.length());
-			std::cout << buffer << std::endl;
 			pos = buffer.find(s1);
+			if (pos == std::string::npos)
+				ret += buffer;
 		}
 	}
 	else
@@ -32,8 +33,16 @@ int main(int argc, char **argv)
 	std::string		out_name;
 	std::ifstream	ifs(argv[1]);
 
-	if (argc != 4)
+	if (ifs == 0)
+	{
+		std::cout << "The filename does not exist" << std::endl;
 		return (1);
+	}
+	if (argc != 4)
+	{
+		std::cout << "You must provide 3 arguments: filename, and two strings" << std::endl;
+		return (1);
+	}
 	out_name = argv[1];
 	out_name += ".replace";
 	std::ofstream	ofs(out_name);

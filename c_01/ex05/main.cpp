@@ -1,8 +1,8 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int main(void)
 {
-    Karen   instance;
+    Harl   instance;
 
     instance.complain("debug");
     instance.complain("info");

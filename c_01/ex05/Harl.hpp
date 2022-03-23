@@ -1,22 +1,16 @@
-#ifndef KAREN_H
-# define KAREN_H
+#ifndef HARL_H
+# define HARL_H
 
-# include <iostream>
+#include <iostream>
 
-# define DEBUG 1
-# define INFO 2
-# define WARNING 3
-# define ERROR 4
-
-class Karen
+class Harl
 {
 public :
 
-    Karen(void);
-    ~Karen(void);
+    Harl(void);
+    ~Harl(void);
 
     void complain(std::string level);
-    int get_filter_lvl(std::string level);
 private:
     void _debug( void );
     void _info( void );
@@ -25,5 +19,7 @@ private:
     std::string _ft_to_upper(std::string str);
 
 };
+
+typedef void (Harl::*my_function)(void);
 
 #endif

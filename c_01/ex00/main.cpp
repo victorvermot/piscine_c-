@@ -3,7 +3,7 @@
 Zombie* newZombie( std::string name )
 {
     Zombie  *new_zombie;
-    
+
     new_zombie = new Zombie(name);
     return (new_zombie);
 }
@@ -19,8 +19,8 @@ void randomChump( std::string name )
 int main()
 {
     Zombie  *new_zombie;
-    new_zombie = newZombie("con");
-    randomChump("con2");
+    new_zombie = newZombie("Head_Zombie");
+    randomChump("Stack_Zombie");
     delete(new_zombie);
     return (0);
 }
