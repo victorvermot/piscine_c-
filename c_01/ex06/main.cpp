@@ -15,7 +15,7 @@ void    pick_case(int level, Harl instance)
 		instance.complain("Error");
 		break ;
 	default :
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			" << std::endl;
 	}
 }
 
