@@ -1,11 +1,11 @@
 #include "Point.hpp"
 
-float _area(Point a, Point b, Point c)
+float _area(Point const a, Point const b, Point const c)
 {
    return abs((a.getX() * (b.getY()- c.getY()) + b.getX() * (c.getY() - a.getY())+ c.getX() * (a.getY()-b.getY()))/2.0);
 }
 
-bool bsp( Point a, Point b, Point c, Point point)
+bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
 	float A = _area(a, b, c);
 	float A1 = _area(point, b, c);

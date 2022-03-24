@@ -14,11 +14,11 @@ private:
 public:
 	Point(void);
 	Point(float x, float y);
-	Point(Point& other);
+	Point(const Point& other);
 	~Point();
-	Point& operator = (Point& rhs);
-	float getX(void);
-	float getY(void);
+	Point& operator = (const Point& rhs);
+	float getX(void) const;
+	float getY(void) const;
 
 };
 
