@@ -2,10 +2,10 @@
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-    _hitpoints = HP;
-    _energy_pts = EP;
-    _attack_dmg = AD;
-    _max_hp = HP;
+    _hitpoints = 100;
+    _energy_pts = 100;
+    _attack_dmg = 30;
+    _max_hp = 100;
 
     std::cout << "FragTrap constructor called" << std::endl;
     std::cout << name << std::endl;

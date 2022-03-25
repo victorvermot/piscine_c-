@@ -3,6 +3,7 @@
 
 Contact::Contact(void)
 {
+	// std::cout << "Basic constructor called." << std::endl;
 	return ;
 }
 
@@ -14,21 +15,17 @@ Contact::~Contact(void)
 
 int	Contact::_contact_num = 0;
 
-char	*Contact::_ft_whitespace(std::string buffer)
+std::string	Contact::_ft_whitespace(std::string buffer)
 {
-	char *ret;
+	std::string ret;
 	int	 i;
 	int	 j;
 
-	ret = new char(buffer.size());
 	i = 0;
 	j = 0;
-	while (buffer[i])
-	{
-		if (!isspace(buffer[i]))
-			ret[j++] = buffer[i];
+	while (isspace(buffer[i]))
 		i++;
-	}
+	ret = buffer.substr(i, buffer.size());
 	return (ret);
 }
 
@@ -68,59 +65,41 @@ void	Contact::get_infos()
 
 void Contact::_print_details(Contact contacts)
 {
-	std::cout << "\e[1mFirst name : \e[0m"<< contacts._first_name << std::endl
-	<< "\e[1mLast name : \e[0m" << contacts._last_name << std::endl
-	<< "\e[1mNickname : \e[0m" << contacts._nickname << std::endl
-	<< "\e[1mPhone Number : \e[0m" << contacts._phone_number << std::endl
-	<< "\e[1mSecret : \e[0m" <<contacts._secret << std::endl;
-}
-
-int	Contact::_ft_strlen(std::string str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		;
-	return (i);
+	std::cout << BOLD "First name : " UNBOLD<< contacts._first_name << std::endl
+	<< BOLD "Last name : " UNBOLD << contacts._last_name << std::endl
+	<< BOLD "Nickname : " UNBOLD << contacts._nickname << std::endl
+	<< BOLD "Phone Number : " UNBOLD << contacts._phone_number << std::endl
+	<< BOLD "Secret : " UNBOLD <<contacts._secret << std::endl;
 }
 
 void Contact::_format_strings(std::string str)
 {
 	int	len;
-	int	i;
 
-	i = 0;
-	len = _ft_strlen(str);
-	while (i + len <= 10)
-	{
+	len = str.length();
+	for (int i = 0; i + len <= 10; i++)
 		std::cout << ' ';
-		i++;
-	}
 	if (len <= 10)
 		std::cout << str << '|';
 	else
 	{
-		i = 0;
-		while (i < 10)
-			std::cout << str[i++];
+		for (int i = 0; i < 10; i++)
+			std::cout << str[i];
 		std::cout << '.' << '|';
 	}
 }
 
 void Contact::search(Contact contacts[8])
 {
-	int	i;
 	int	choice;
 
-	i = -1;
 	choice = 0;
 	if (!_contact_num)
 	{
 		std::cout << "Please add an entry first.\n";
 		return ;
 	}
-	while (++i < _contact_num)
+	for (int i = 0; i < _contact_num; i++)
 	{
 		std::cout << "        " << i + 1 << "|";
 		_format_strings(contacts[i]._first_name);

@@ -1,67 +1,59 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
-template <typename T, typename U>
+# include <iostream>
+
+template <typename T>
 class Array
 {
 private:
-    /* data */
+    unsigned int _tab_size;
 public:
-    Array<T, U>()
+    Array<T>()
     {
         std::cout << "Generic tab called." << std::endl;
         tab = new T;
     };
-    Array<T, U>(const Array& other)
+    Array<T>(unsigned int s) : _tab_size(s)
+    {
+        std::cout << "Int constructor tab called." << std::endl;
+        tab = new T[s];
+    };
+    Array<T>(const Array& other)
     {
         std::cout << "Copy constructor called" << std::endl;
 	    *this = other;
     };
-    Array<T, U>& operator=(const Array& rhs)
+    Array<T>& operator=(const Array& rhs)
     {
         std::cout << "Copy assignment overload called" << std::endl;
         if (this != &rhs)
             this->tab = rhs.tab;
         return (*this);
     };
-    ~Array<T, U>(void){};
-    T   tab[];
-};
-
-template <typename U>
-class Array <unsigned int, U>
-{
-private:
-    /* data */
-public:
-    Array<unsigned int, U>(unsigned int s, U type) : size(s)
+    T operator[](unsigned int i)
     {
-        std::cout << "Int specializaion tab called." << std::endl;
-        tab = new [s] T;
-    };
-    Array<unsigned int, U>(const Array& other)
-    {
-        std::cout << "Copy constructor called" << std::endl;
-	    *this = other;
-    };
-    Array<unsigned int, U>& operator=(const Array& rhs)
-    {
-        std::cout << "Copy assignment overload called" << std::endl;
-        if (this != &rhs)
+        T   ret;
+        try
         {
-            this->tab = rhs.tab;
-            this->size = rhs.tab_size;
+            if (i > _tab_size)
+                throw std::exception();
+            else
+                ret = tab[i];
         }
-        return (*this);
+        catch(const std::exception& e)
+            std::cerr << "The index is not valid." << std::endl;
+        return (ret);
     };
-
-    ~Array<unsigned int, U>(void){};
-    unsigned int    size() const {
-        return (size);
+    unsigned int size() const
+    {
+        return (_tab_size);
     };
-
-    T   tab[];
-    unsigned    int tab_size;
+    ~Array<T>(void)
+    {
+        delete [] tab;
+    };
+    T   *tab;
 };
 
 #endif

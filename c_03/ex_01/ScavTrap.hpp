@@ -4,19 +4,15 @@
 # include "ClapTrap.hpp"
 # include <iostream>
 
-# undef HP
-# define HP 100
-# undef EP
-# define EP 50
-# undef AD
-# define AD 20
-
 class ScavTrap : public ClapTrap
 {
 private:
     /* data */
 public:
+    ScavTrap();
     ScavTrap(std::string name);
+    ScavTrap(const ScavTrap& other);
+    ScavTrap& operator=(const ScavTrap& rhs);
     ~ScavTrap(void);
     void guardGate();
 };

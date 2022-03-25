@@ -1,4 +1,4 @@
-SRCS			= megaphone.c
+SRCS			= megaphone.cpp
 OBJS			= ${SRCS:.cpp=.o}
 NAME            = megaphone
 CC				= c++

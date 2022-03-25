@@ -8,25 +8,21 @@
 
 Fixed Fixed::operator + (const Fixed& rhs) const
 {
-	// std::cout << "Copy assignment overload called" << std::endl;
 	return Fixed(this->toFloat() + rhs.toFloat());
 }
 
 Fixed Fixed::operator - (const Fixed& rhs) const
 {
-	// std::cout << "Copy assignment overload called" << std::endl;
 	return Fixed(this->toFloat() - rhs.toFloat());
 }
 
 Fixed Fixed::operator * (const Fixed& rhs) const
 {
-	// std::cout << "Multiplication overloading" << std::endl;
 	return Fixed(this->toFloat() * rhs.toFloat());
 }
 
 Fixed Fixed::operator / (const Fixed& rhs) const
 {
-	// std::cout << "Division overloading" << std::endl;
 	return Fixed(this->toFloat() / rhs.toFloat());
 }
 

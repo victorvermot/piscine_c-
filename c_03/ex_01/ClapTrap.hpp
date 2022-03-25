@@ -15,7 +15,7 @@ protected:
     int _energy_pts;
     int _attack_dmg;
 public:
-
+    ClapTrap();
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap& other);
     ~ClapTrap();

@@ -3,6 +3,9 @@
 
 # include <iostream>
 
+# define BOLD "\e[1m"
+# define UNBOLD "\e[0m"
+
 template <typename T>
 T   double_num(T num)
 {
@@ -18,9 +21,9 @@ void    iter(T tab[], int size, T (*f)(T))
 	i = 0;
 	while (i < size)
 	{
-		std::cout << tab[i] << "    ";
+		std::cout << tab[i];
 		tab[i] = f(tab[i]);
-		std::cout << "Doubled : " << tab[i] << std::endl;
+		std::cout << " Doubled : " << tab[i] << std::endl;
 		i++;
 	}
 }

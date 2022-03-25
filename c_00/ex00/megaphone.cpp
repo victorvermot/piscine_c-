@@ -1,11 +1,8 @@
 #include <iostream>
 
-char	*ft_to_upper(char *str)
+std::string	ft_to_upper(std::string str)
 {
-	int i;
-
-	i = -1;
-	while (str[++i])
+	for (int i = 0; i < str.length(); i++)
 		str[i] = toupper(str[i]);
 	return (str);
 }
@@ -19,8 +16,10 @@ int	main(int argc, char **argv)
 	{
 		while (++i < argc)
 		{
-			argv[i] = ft_to_upper(argv[i]);
-			std::cout << argv[i];
+			std::string str(argv[i]);
+			std::cout << ft_to_upper(str);
+			if (i + 1 != argc)
+				std::cout << " ";
 		}
 	}
 	else
