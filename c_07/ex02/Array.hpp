@@ -31,23 +31,23 @@ public:
             this->tab = rhs.tab;
         return (*this);
     };
-    T operator[](unsigned int i)
+    T& operator[](unsigned int i)
     {
-        T   ret;
-        try
-        {
-            if (i > _tab_size)
-                throw std::exception();
-            else
-                ret = tab[i];
-        }
-        catch(const std::exception& e)
-            std::cerr << "The index is not valid." << std::endl;
-        return (ret);
+        if (i >= _tab_size)
+            throw InvalidIndex();
+        return (tab[i]);
     };
     unsigned int size() const
     {
         return (_tab_size);
+    };
+    class InvalidIndex : public std::exception
+    {
+        public:
+            virtual const char* what() const throw()
+            {
+                return ("The index value provided is not valid");
+            }
     };
     ~Array<T>(void)
     {

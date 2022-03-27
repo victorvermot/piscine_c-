@@ -1,6 +1,6 @@
 SRCS			= main.cpp
 OBJS			= ${SRCS:.cpp=.o}
-NAME            = bureau
+NAME            = iter
 CC				= c++ -g
 RM              = rm -f
 
