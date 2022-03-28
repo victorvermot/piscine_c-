@@ -6,18 +6,24 @@ Span::Span()
     return ;
 }
 
-Span::Span(unsigned int num) : _size(num)
+Span::Span(unsigned int num) : _capacity(num), _size(0)
 {
     std::cout << "Default constructor called." << std::endl;
-    tab = new int[_size];
     return ;
 }
 
 void Span::addNumber(int new_num)
 {
-    
+    if (_size < _capacity)
+    {
+        _size++;
+        tab.push_back(new_num);
+    }
+    else
+    {
+        throw TooManyNum();
+    }
 }
-
 
 Span::~Span()
 {

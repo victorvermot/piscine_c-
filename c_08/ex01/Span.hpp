@@ -3,6 +3,7 @@
 
 # include <algorithm>
 # include <iostream>
+# include <vector>
 
 class Span
 {
@@ -11,10 +12,18 @@ public:
     Span(unsigned int);
     ~Span();
     void addNumber(int new_num);
-
+    class TooManyNum : std::exception
+    {
+        public:
+            virtual const char *what() const throw()
+            {
+                return ("You reached the maximum capacity.\n");
+            }
+    };
 private:
     unsigned int _size;
-    int *tab;
+    unsigned int _capacity;
+    std::vector<int> tab;
 };
 
 #endif
