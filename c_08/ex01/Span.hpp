@@ -7,11 +7,21 @@
 
 class Span
 {
+private:
+    unsigned int _size;
+    unsigned int _capacity;
+    std::vector<int> tab;
+
 public:
     Span();
     Span(unsigned int);
     ~Span();
+
     void addNumber(int new_num);
+    void addRange(int range);
+    int  shortestSpan();
+    int  longestSpan();
+
     class TooManyNum : std::exception
     {
         public:
@@ -20,10 +30,15 @@ public:
                 return ("You reached the maximum capacity.\n");
             }
     };
-private:
-    unsigned int _size;
-    unsigned int _capacity;
-    std::vector<int> tab;
+    class NotEnoughNum : std::exception
+    {
+        public:
+            virtual const char *what() const throw()
+            {
+                return ("Not enough numbers are stored in the class\n");
+            }
+    };
+
 };
 
 #endif

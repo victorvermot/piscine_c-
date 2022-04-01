@@ -4,7 +4,7 @@ int main(void)
 {
     // ScavTrap a("Serge");
     DiamondTrap b("Yvan");
-    // DiamondTrap c(b);
+    DiamondTrap c(b);
     // ScavTrap d("Yoann");
     // ScavTrap b(a);
     // DiamondTrap b(a);

@@ -19,6 +19,16 @@ Animal::Animal(Animal& other)
     return ;
 }
 
+Animal& Animal::operator = (const Animal& rhs)
+{
+    std::cout << "Equal operator overload called" << std::endl;
+    if (this != &rhs)
+    {
+        this->type = rhs.type;
+    }
+    return (*this);
+}
+
 Animal::~Animal()
 {
     std::cout << RED "Animal Destructor called" << std::endl;
@@ -35,12 +45,3 @@ void Animal::makeSound() const
     std::cout << "I make noise" << std::endl;
 }
 
-Animal& Animal::operator = (const Animal& rhs)
-{
-    std::cout << "Equal operator overload called" << std::endl;
-    if (this != &rhs)
-    {
-        this->type = rhs.type;
-    }
-    return (*this);
-}

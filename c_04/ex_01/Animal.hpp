@@ -9,18 +9,19 @@
 
 class Animal
 {
-public:
+protected:
+    std::string type;
 
+public:
     Animal();
     virtual ~Animal();
     Animal(std::string name);
     Animal(Animal& other);
-    virtual void makeSound() const;
-    std::string    getType() const;
+
     Animal& operator = (const Animal& rhs);
 
-protected:
-    std::string type;
+    virtual void makeSound() const;
+    std::string    getType() const;
 };
 
 #endif

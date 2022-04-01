@@ -25,8 +25,48 @@ void Span::addNumber(int new_num)
     }
 }
 
+void Span::addRange(int range)
+{
+    std::vector<int>::iterator it;
+
+    for (int i = 0; i < range; i++)
+    {
+        
+    }
+    void insert (iterator position, size_type n, const value_type& val);
+}
+
+int  Span::shortestSpan()
+{
+    int min;
+    if (_size < 2)
+    {
+        throw NotEnoughNum();
+    }
+    std::sort(tab.begin(), tab.end());
+    min = tab[1] - tab[0];
+    for (std::vector<int>::iterator it=tab.begin(); it!=tab.end(); ++it)
+    {
+        if (it + 1 != tab.end())
+        {
+            if (min > *(it + 1) - *it)
+                min = *(it + 1) - *it;
+        }
+    }
+    return (min);
+}
+
+int  Span::longestSpan()
+{
+    if (_size < 2)
+    {
+        throw NotEnoughNum();
+    }
+    return (*std::max_element(tab.begin(), tab.end()) - *std::min_element(tab.begin(), tab.end()));
+}
+
 Span::~Span()
 {
-    std::cout << "Default destructor called." << std::endl;
+    std::cout << "Destructor called." << std::endl;
     return ;
 }

@@ -2,10 +2,9 @@
 
 int main(void)
 {
-    // ClapTrap b("Bite");
     ScavTrap a("Roro le robot");
     ScavTrap b(a);
-    // b.attack("Un autre con");
+
     a.guardGate();
     a.takeDamage(50);
     a.beRepaired(20);
