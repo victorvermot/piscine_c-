@@ -4,8 +4,8 @@ class Character;
 # define CHARACTER_H
 
 # include <iostream>
-# include <ICharacter.hpp>
-# include <AMateria.hpp>
+# include "ICharacter.hpp"
+# include "../Materia/AMateria.hpp"
 # define FREE 0
 # define OCCUPIED 1
 # define INVENTORY_SIZE 4

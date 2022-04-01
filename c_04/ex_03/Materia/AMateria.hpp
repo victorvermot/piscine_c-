@@ -3,7 +3,7 @@ class AMateria;
 #ifndef AMATERIA_H
 # define AMATERIA_H
 
-# include <ICharacter.hpp>
+# include "../Character/ICharacter.hpp"
 
 class AMateria
 {

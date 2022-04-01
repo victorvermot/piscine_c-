@@ -5,7 +5,7 @@
 int main()
 {
     // Line 8 is illegal, as the class is abstract
-    AAnimal lol();
+    // AAnimal lol();
     const AAnimal* j[10];
     for (int i = 0; i < 10; i++)
     {
@@ -16,7 +16,7 @@ int main()
     }
     for (int i = 0; i < 10; i++)
     {
-        delete j[i];//should not create a leak
+        delete j[i];
     }
     return 0;
 }

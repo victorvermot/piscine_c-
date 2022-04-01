@@ -29,7 +29,7 @@ Dog& Dog::operator = (Dog& rhs)
     return (*this);
 }
 
-Dog::Dog(Dog& other) : AAnimal("Dog")
+Dog::Dog(Dog& other)
 {
     *this = other;
 }

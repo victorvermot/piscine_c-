@@ -11,9 +11,11 @@ public:
     Dog();
     ~Dog();
     Dog(Dog& other);
+
+    Dog& operator = (Dog& rhs);
+
     void makeSound() const;
     Brain *cerveau;
-    Dog& operator = (Dog& rhs);
 };
 
 #endif

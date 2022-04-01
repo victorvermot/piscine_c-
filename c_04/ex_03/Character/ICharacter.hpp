@@ -4,7 +4,7 @@ class ICharacter;
 # define ICHARACTER_H
 
 # include <iostream>
-# include <AMateria.hpp>
+# include "../Materia/AMateria.hpp"
 
 class ICharacter
 {
