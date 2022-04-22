@@ -5,8 +5,17 @@
 
 int main()
 {
-    Intern someRandomIntern;
-    AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    rrf->action();
+	AForm* rrf;
+	Intern someRandomIntern;
+
+	try
+	{
+		rrf = someRandomIntern.makeForm("robotomy request du cul", "Bender");
+		rrf->action();
+		delete rrf;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }

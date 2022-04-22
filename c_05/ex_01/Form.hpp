@@ -1,14 +1,17 @@
-class Form;
 #ifndef FORM_H
 # define FORM_H
 
+# include "Bureaucrat.hpp"
 # include <iostream>
-# include <Bureaucrat.hpp>
+
+class Bureaucrat;
 
 class Form
 {
 public:
-    Form();
+	Form();
+	Form(const Form& other);
+	Form& operator = (const Form& rhs);
     Form(std::string name, int grade_sign, int grade_exe);
     ~Form();
     std::string getName() const;

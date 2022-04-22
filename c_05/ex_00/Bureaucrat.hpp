@@ -21,7 +21,7 @@ public:
         public:
             virtual const char* what() const throw()
             {
-                return ("The value provided is too high");
+                return ("Exception: The grade value is too high");
             }
     };
 
@@ -30,7 +30,7 @@ public:
         public:
             virtual const char* what() const throw()
             {
-                return ("The value provided is too low");
+                return ("Exception: The grade value is too low");
             }
     };
 

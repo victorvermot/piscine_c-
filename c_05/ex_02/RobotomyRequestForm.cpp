@@ -5,7 +5,7 @@ RobotomyRequestForm::RobotomyRequestForm()
     return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("default", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : AForm(name, 72, 45), _target(target)
 {
     return ;
 }
@@ -44,21 +44,9 @@ void RobotomyRequestForm::action() const
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    try
-    {
-        if (executor.getGrade() > this->getGradeToExe())
-            throw AForm::GradeTooLowExceptions();
-        else if (this->getIsSigned() == 0)
-            throw AForm::FormNotSignedException();
-        else
-            this->action();
-    }
-    catch(const AForm::GradeTooLowExceptions& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    catch(const AForm::FormNotSignedException& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+	if (executor.getGrade() > this->getGradeToExe())
+		throw AForm::GradeTooLowExceptions();
+	else if (this->getIsSigned() == 0)
+		throw AForm::FormNotSignedException();
+	this->action();
 }

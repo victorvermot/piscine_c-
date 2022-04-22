@@ -2,31 +2,20 @@
 
 Bureaucrat::Bureaucrat()
 {
+    std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name)
 {
-	try
-	{
-		if (grade < 1)
-			throw  Bureaucrat::GradeTooLowExceptions();
-		else if (grade > 150)
-			throw  Bureaucrat::GradeTooHighExceptions();
-		else
-			_grade = grade;
-	}
-	catch(const Bureaucrat::GradeTooLowExceptions& e)
-	{
-		std::cerr << e.what() << std::endl;
-		_grade = 0;
-	}
-	catch(const Bureaucrat::GradeTooHighExceptions& e)
-	{
-		std::cerr << e.what() << std::endl;
-		_grade = 0;
-	}
-	return ;
+    if (grade < 1)
+        throw  Bureaucrat::GradeTooLowExceptions();
+    else if (grade > 150)
+        throw  Bureaucrat::GradeTooHighExceptions();
+    else
+        _grade = grade;
+	std::cout << "New bureaucrat registered: " << *this << std::endl;
+    return ;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat& other)
@@ -50,33 +39,26 @@ Bureaucrat::~Bureaucrat()
 
 void Bureaucrat::promotion()
 {
-	try
-	{
-		if (this->_grade - 1 < 1)
-			throw Bureaucrat::GradeTooHighExceptions();
+    if (this->_grade - 1 < 1)
+        throw Bureaucrat::GradeTooHighExceptions();
+    else
+    {
+        this->_grade -= 1;
+        std::cout << "Good news, you got promoted. Your new rank is now " << _grade << std::endl;
+    }
 
-		else
-			this->_grade -= 1;
-	}
-	catch(Bureaucrat::GradeTooHighExceptions& e)
-	{
-		std::cerr << "You can't get higher." << std::endl;
-	}
+
 }
 
 void Bureaucrat::demotion()
 {
-	try
-	{
-		if (this->_grade + 1 > 150)
-			throw Bureaucrat::GradeTooLowExceptions();
-		else
-			this->_grade += 1;
-	}
-	catch(Bureaucrat::GradeTooLowExceptions& e)
-	{
-		std::cerr << "You can't get lower." << std::endl;
-	}
+    if (this->_grade + 1 > 150)
+        throw Bureaucrat::GradeTooLowExceptions();
+    else
+    {
+        this->_grade += 1;
+        std::cout << "Bad news, you got demoted. Your new rank is now " << _grade << std::endl;
+    }
 }
 
 std::string Bureaucrat::getName() const

@@ -5,6 +5,17 @@ Intern::Intern()
     return ;
 }
 
+Intern::Intern(const Intern& other)
+{
+	*this = other;
+	return ;
+}
+
+Intern& Intern::operator=(const Intern &rhs)
+{
+	return (*this);
+}
+
 Intern::~Intern()
 {
     return ;
@@ -23,37 +34,22 @@ std::string	Intern::_ft_to_upper(std::string str)
 
 AForm* Intern::makeForm(std::string name, std::string target)
 {
-    std::string names[] = {"ROBOTOMY REQUEST", "PRESIDENTIAL PARDON FORM", "SHRUBBERY CREATION FORM"};
-    int   which_form;
+	t_forms forms[FORMS_NUM] = {
+			{"ROBOTOMY REQUEST", new RobotomyRequestForm(target)},
+			{"PRESIDENTIAL PARDON", new PresidentialPardonForm(target)},
+			{"SHRUBBERY CREATION", new RobotomyRequestForm(target)},
+	};
     AForm *ret;
-
     ret = NULL;
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < FORMS_NUM; i++)
     {
-        if (names[i] == _ft_to_upper(name))
-            which_form = i;
+        if (forms[i].name == _ft_to_upper(name))
+            ret = forms[i].form;
+		else
+			delete forms[i].form;
     }
-    try
-    {
-        switch (which_form)
-        {
-        case 0:
-            ret = new RobotomyRequestForm(target);
-            break;
-        case 1:
-            ret = new PresidentialPardonForm(target);
-            break;
-        case 2:
-            ret = new ShrubberyCreationForm(target);
-            break;
-        default:
-            throw Intern::NoNameExceptions();
-            break;
-        }
-    }
-    catch (Intern::NoNameExceptions& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+	if (!ret)
+		throw Intern::NoNameExceptions();
+	std::cout << "Intern created " << name << " form." << std::endl;
     return (ret);
 }
