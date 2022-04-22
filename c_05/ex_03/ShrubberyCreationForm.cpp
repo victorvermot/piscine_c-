@@ -5,7 +5,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("default", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) : AForm(name, 145, 137), _target(target)
 {
     return ;
 }

@@ -5,7 +5,7 @@ RobotomyRequestForm::RobotomyRequestForm()
     return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("default", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : AForm(name, 72, 45), _target(target)
 {
     return ;
 }

@@ -5,9 +5,9 @@ PresidentialPardonForm::PresidentialPardonForm()
     return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("default", 72, 45), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string target) : AForm(name, 72, 45), _target(target)
 {
-    return ;
+	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& other)

@@ -35,9 +35,9 @@ std::string	Intern::_ft_to_upper(std::string str)
 AForm* Intern::makeForm(std::string name, std::string target)
 {
 	t_forms forms[FORMS_NUM] = {
-			{"ROBOTOMY REQUEST", new RobotomyRequestForm(target)},
-			{"PRESIDENTIAL PARDON", new PresidentialPardonForm(target)},
-			{"SHRUBBERY CREATION", new RobotomyRequestForm(target)},
+			{"ROBOTOMY REQUEST", new RobotomyRequestForm(name, target)},
+			{"PRESIDENTIAL PARDON", new PresidentialPardonForm(name, target)},
+			{"SHRUBBERY CREATION", new RobotomyRequestForm(name, target)},
 	};
     AForm *ret;
     ret = NULL;
