@@ -3,6 +3,7 @@
 # include "PresidentialPardonForm.hpp"
 # include "Intern.hpp"
 
+// TODO More tests for this one and check if exception class can have code in .hpp files
 int main()
 {
 	AForm* rrf;
