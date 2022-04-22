@@ -37,36 +37,27 @@ void identify(Base& p)
     try
     {
         A& test_a = dynamic_cast<A&>(p);
-        (void)test_a;
+		(void)test_a;
         std::cout << "p real type is A" << std::endl;
         return ;
     }
-    catch(const std::bad_cast& e)
-    {
-        ;
-    }
+    catch(const std::bad_cast& e) {}
     try
     {
         B& test_b = dynamic_cast<B&>(p);
-        (void)test_b;
+		(void)test_b;
         std::cout << "p real type is B" << std::endl;
         return ;
     }
-    catch(const std::bad_cast& e)
-    {
-        ;
-    }
+    catch(const std::bad_cast& e) {}
     try
     {
         C& test_c = dynamic_cast<C&>(p);
-        (void)test_c;
+		(void)test_c;
         std::cout << "p real type is C" << std::endl;
         return ;
     }
-    catch(const std::bad_cast& e)
-    {
-       ;
-    }
+    catch(const std::bad_cast& e) {}
     std::cout << "Conversion impossible" << std::endl;
 }
 

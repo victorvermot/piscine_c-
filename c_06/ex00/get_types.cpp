@@ -35,7 +35,7 @@ int is_double(std::string arg)
     point_count = 0;
     while (arg[i])
     {
-        if ((arg[i] >= '0' && arg[i] <= '9') ||arg[i] == '.')
+        if ((arg[i] >= '0' && arg[i] <= '9') || arg[i] == '.')
         {
             if (arg[i] == '.')
                 point_count++;
