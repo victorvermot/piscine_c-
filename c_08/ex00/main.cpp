@@ -10,10 +10,11 @@ int main()
 
     try
     {
-        std::cout <<  easyfind(tab, 69) << std::endl;
+		std::cout <<  easyfind(tab, 2) << std::endl;
+		std::cout <<  easyfind(tab, 69) << std::endl;
     }
     catch(const NoFind& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what();
     }
 }

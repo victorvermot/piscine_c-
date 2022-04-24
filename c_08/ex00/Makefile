@@ -1,6 +1,6 @@
 SRCS			= main.cpp
 OBJS			= ${SRCS:.cpp=.o}
-NAME            = array
+NAME            = easyfinder
 CC				= c++ -g
 RM              = rm -f
 

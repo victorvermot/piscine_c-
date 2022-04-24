@@ -15,6 +15,8 @@ private:
 public:
     Span();
     Span(unsigned int);
+	Span(const Span& other);
+	Span& operator=(const Span& rhs);
     ~Span();
 
     void addNumber(int new_num);

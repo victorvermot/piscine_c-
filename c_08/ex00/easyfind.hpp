@@ -20,10 +20,12 @@ int easyfind(const T& container, int num)
     for (int i = 0; i < container.size(); i++)
     {
         if (container[i] == num)
+		{
+			std::cout << "The entry " << num << " was found at index " << i << std::endl;
             return (container[i]);
+		}
     }
     throw NoFind();
-    return (0);
 }
 
 #endif

@@ -2,10 +2,12 @@
 
 int main(void)
 {
-    Span a(4);
+    Span a(10001);
 
     try
     {
+		a.addRange(2000);
+		a.addRange(2000);
         a.addNumber(4);
         a.addNumber(56);
         a.addNumber(2);
