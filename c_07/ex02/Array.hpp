@@ -8,16 +8,17 @@ class Array
 {
 private:
     unsigned int _tab_size;
+    T   *_tab;
 public:
     Array<T>()
     {
         std::cout << "Generic tab called." << std::endl;
-        tab = new T;
+		_tab = new T;
     };
     Array<T>(unsigned int s) : _tab_size(s)
     {
         std::cout << "Int constructor tab called." << std::endl;
-        tab = new T[s];
+		_tab = new T[s];
     };
     Array<T>(const Array& other)
     {
@@ -28,14 +29,19 @@ public:
     {
         std::cout << "Copy assignment overload called" << std::endl;
         if (this != &rhs)
-            this->tab = rhs.tab;
+		{
+			this->_tab_size = rhs._tab_size;
+			this->_tab = new T[rhs._tab_size];
+			for (int i = 0; i < rhs._tab_size; i++)
+            	this->_tab[i] = rhs._tab[i];
+		}
         return (*this);
     };
     T& operator[](unsigned int i)
     {
         if (i >= _tab_size)
             throw InvalidIndex();
-        return (tab[i]);
+        return (_tab[i]);
     };
     unsigned int size() const
     {
@@ -51,9 +57,8 @@ public:
     };
     ~Array<T>(void)
     {
-        delete [] tab;
+        delete [] _tab;
     };
-    T   *tab;
 };
 
 #endif

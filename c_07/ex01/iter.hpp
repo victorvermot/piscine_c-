@@ -23,7 +23,7 @@ void    iter(T tab[], int size, T (*f)(T))
 	{
 		std::cout << tab[i];
 		tab[i] = f(tab[i]);
-		std::cout << " Doubled : " << tab[i] << std::endl;
+		std::cout << " After function : " << tab[i] << std::endl;
 		i++;
 	}
 }
