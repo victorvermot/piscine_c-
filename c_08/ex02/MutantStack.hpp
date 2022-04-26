@@ -10,9 +10,14 @@ class MutantStack : public std::stack<T>
 {
 public:
 	MutantStack<T>() {}
-	MutantStack<T>(const MutantStack<T>& src) { *this = src; }
+	MutantStack<T>(const MutantStack<T>& src)
+	{
+		std::cout << "Copy constructor called." << std::endl;
+		*this = src;
+	}
 	MutantStack<T>& operator=(const MutantStack<T>& rhs)
 	{
+		std::cout << "Equal operator overload called." << std::endl;
 		this->c = rhs.c;
 		return *this;
 	}
