@@ -1,11 +1,10 @@
-SRCS			= ${addprefix ./Character/, Character.cpp} ${addprefix ./Materia/, Cure.cpp Ice.cpp  AMateria.cpp} main.cpp
-# SRCS			= Character.cpp Cure.cpp Ice.cpp  AMateria.cpp
+SRCS			= Character.cpp Cure.cpp Ice.cpp  AMateria.cpp main.cpp MateriaSource.cpp
 OBJS			= ${SRCS:.cpp=.o}
-NAME            = diamonds
+NAME            = materia
 CC				= c++ -g
 RM              = rm -f
 
-CFLAGS          = -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address -I . -I ./Character/ -I ./Materia/
+CFLAGS          = -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o} ${HEADS}

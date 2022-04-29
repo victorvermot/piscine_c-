@@ -12,6 +12,17 @@ Ice::~Ice()
     return ;
 }
 
+Ice::Ice(const Ice& other)
+{
+	std::cout << "Ice copy constructor called" << std::endl;
+	*this = other;
+}
+
+Ice& Ice::operator=(const Ice &rhs)
+{
+	return (*this);
+}
+
 AMateria* Ice::clone() const
 {
     Ice* ret = new Ice();
