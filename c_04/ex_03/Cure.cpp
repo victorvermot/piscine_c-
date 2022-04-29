@@ -2,11 +2,13 @@
 
 Cure::Cure() : AMateria("cure")
 {
+	std::cout << "Cure base constructor called" << std::endl;
     return ;
 }
 
 Cure::~Cure()
 {
+	std::cout << "Cure copy constructor called" << std::endl;
     return ;
 }
 
