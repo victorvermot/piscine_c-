@@ -38,8 +38,7 @@ void MateriaSource::learnMateria(AMateria* newMateria)
 	{
 		if (!_inventory[i])
 		{
-			_inventory[i] = newMateria->clone();
-			delete newMateria;
+			_inventory[i] = newMateria;
 			break ;
 		}
 	}
