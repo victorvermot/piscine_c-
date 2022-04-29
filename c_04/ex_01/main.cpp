@@ -12,9 +12,10 @@ int main()
         else
             j[i] = new Cat();
     }
+	std::cout << "----------------------------------------------" << std::endl;
     for (int i = 0; i < 10; i++)
     {
-        delete j[i];//should not create a leak
+        delete j[i];
     }
     return 0;
 }

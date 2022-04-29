@@ -6,12 +6,6 @@ Animal::Animal()
     return ;
 }
 
-Animal::Animal(std::string name) : type(name)
-{
-    std::cout << GREEN "Animal string constructor called" << std::endl;
-    return ;
-}
-
 Animal::Animal(Animal& other)
 {
     std::cout << "Animal copy constructor called" << std::endl;
@@ -31,7 +25,7 @@ Animal& Animal::operator = (const Animal& rhs)
 
 Animal::~Animal()
 {
-    std::cout << RED "Animal Destructor called" << std::endl;
+    std::cout << "Animal Destructor called" << std::endl;
     return ;
 }
 

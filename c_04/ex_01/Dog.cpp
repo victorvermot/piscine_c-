@@ -1,15 +1,16 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog()
 {
     std::cout << "Dog constructor called" << std::endl;
+	this->type = "Dog";
     cerveau = new Brain();
     return ;
 }
 
 Dog::~Dog()
 {
-    std::cout << RED "Dog destructor called" << std::endl;
+    std::cout << "Dog destructor called" << std::endl;
     delete cerveau;
     return ;
 }
@@ -29,7 +30,7 @@ Dog& Dog::operator = (Dog& rhs)
     return (*this);
 }
 
-Dog::Dog(Dog& other) : Animal("Dog")
+Dog::Dog(Dog& other)
 {
     *this = other;
 }

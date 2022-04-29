@@ -11,7 +11,6 @@ public:
     ~Brain();
 
     Brain& operator = (const Brain& rhs);
-
     std::string ideas[100];
 
 private:
