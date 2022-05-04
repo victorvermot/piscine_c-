@@ -3,15 +3,30 @@
 int main(void)
 {
 	Data		test;
-	Data		*final;
+	Data		*restored;
+	int 		*head;
 	uintptr_t	ret;
 
-	std::cout << "Original value " << &test << std::endl;
 	test.trash = 56;
+	test.num = 542;
+	test.c = 'a';
+	std::cout << "Original address " << &test << std::endl;
 	std::cout << "Original value of the int: " << test.trash << std::endl;
+
+	// Cast my struct into an unsigned int ptr
 	ret = serialize(&test);
-	std::cout << "Le unintptr_t vaut: " << &ret << std::endl;
-	final = deserialize(ret);
-	std::cout << "La valeur restored vaut: " << final << std::endl;
-	std::cout << "La valeur du int stored: " << final->trash << std::endl;
+
+	// Can still access my elements with correct casts
+	head = reinterpret_cast<int *>(ret);
+	std::cout << "First data: " << *head << std::endl;
+	head++;
+	std::cout << "Second data: " << *head << std::endl;
+	head++;
+	std::cout << "Third data: " << *reinterpret_cast<char *>(head) << std::endl;
+
+	// Restore the value
+	std::cout << "Unintptr address: " << &ret << std::endl;
+	restored = deserialize(ret);
+	std::cout << "Restored address " << restored << std::endl;
+	std::cout << "Restored value of the int: " << restored->trash << std::endl;
 }

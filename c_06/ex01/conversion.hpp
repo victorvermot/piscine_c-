@@ -6,6 +6,8 @@
 struct Data
 {
     int trash;
+	int num;
+	char c;
 };
 
 uintptr_t serialize(Data* ptr);

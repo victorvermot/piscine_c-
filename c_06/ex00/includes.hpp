@@ -3,6 +3,7 @@
 
 # include <iostream>
 
+// print.cpp
 void    print_char(char c);
 void    print_int(int num);
 void    print_float(float num);
