@@ -11,9 +11,9 @@ int main()
     try
     {
 		std::cout <<  easyfind(tab, 2) << std::endl;
-		std::cout <<  easyfind(tab, 69) << std::endl;
+		std::cout <<  easyfind(tab, 42) << std::endl;
     }
-    catch(const NoFind& e)
+    catch(NoFind& e)
     {
         std::cerr << e.what();
     }

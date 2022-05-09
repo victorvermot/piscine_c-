@@ -23,7 +23,7 @@ Span& Span::operator=(const Span &rhs)
 	return (*this);
 }
 
-Span::Span(unsigned int num) : _capacity(num), _size(0)
+Span::Span(unsigned int num) : _size(0), _capacity(num)
 {
     std::cout << "Default constructor called." << std::endl;
     return ;
@@ -70,6 +70,16 @@ int  Span::shortestSpan()
         }
     }
     return (min);
+}
+
+const char* Span::TooManyNum::what() const throw()
+{
+	return ("You reached the maximum capacity.\n");
+}
+
+const char* Span::NotEnoughNum::what() const throw()
+{
+	return ("Not enough numbers are stored in the class\n");
 }
 
 int  Span::longestSpan()

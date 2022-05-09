@@ -17,7 +17,7 @@ class NoFind : std::exception
 template<typename T>
 int easyfind(const T& container, int num)
 {
-    for (int i = 0; i < container.size(); i++)
+    for (size_t i = 0; i < container.size(); i++)
     {
         if (container[i] == num)
 		{

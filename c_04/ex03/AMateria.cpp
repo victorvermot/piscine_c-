@@ -35,5 +35,5 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    std::cout << "Just a test" << std::endl;
+    std::cout << "Originial use fnc " << target.getName() << std::endl;
 }

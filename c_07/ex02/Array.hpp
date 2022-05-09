@@ -7,13 +7,13 @@ template <typename T>
 class Array
 {
 private:
-    unsigned int _tab_size;
-    T   *_tab;
+    size_t	_tab_size;
+    T   	*_tab;
 public:
     Array<T>()
     {
         std::cout << "Generic tab called." << std::endl;
-		_tab = new T;
+		_tab = new T[0];
     };
     Array<T>(unsigned int s) : _tab_size(s)
     {
@@ -32,7 +32,7 @@ public:
 		{
 			this->_tab_size = rhs._tab_size;
 			this->_tab = new T[rhs._tab_size];
-			for (int i = 0; i < rhs._tab_size; i++)
+			for (size_t i = 0; i < rhs._tab_size; i++)
             	this->_tab[i] = rhs._tab[i];
 		}
         return (*this);

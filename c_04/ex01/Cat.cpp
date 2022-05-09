@@ -26,7 +26,8 @@ Cat& Cat::operator = (const Cat& rhs)
     std::cout << "Cat equal overload operator" << std::endl;
     if (this != &rhs)
     {
-        this->cerveau = rhs.cerveau;
+		this->cerveau = new Brain();
+        *this->cerveau = *rhs.cerveau;
         this->type = rhs.type;
     }
     return (*this);

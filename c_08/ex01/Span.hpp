@@ -27,18 +27,12 @@ public:
     class TooManyNum : std::exception
     {
         public:
-            virtual const char *what() const throw()
-            {
-                return ("You reached the maximum capacity.\n");
-            }
+            virtual const char *what() const throw();
     };
     class NotEnoughNum : std::exception
     {
         public:
-            virtual const char *what() const throw()
-            {
-                return ("Not enough numbers are stored in the class\n");
-            }
+            virtual const char *what() const throw();
     };
 
 };

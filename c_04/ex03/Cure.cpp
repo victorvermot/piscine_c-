@@ -22,6 +22,7 @@ Cure::Cure(const Cure& other)
 
 Cure& Cure::operator=(const Cure &rhs)
 {
+	(void)rhs;
 	return (*this);
 }
 

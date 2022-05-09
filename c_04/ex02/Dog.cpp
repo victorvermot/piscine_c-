@@ -24,7 +24,8 @@ Dog& Dog::operator = (Dog& rhs)
 {
     if (this != &rhs)
     {
-        this->cerveau = rhs.cerveau;
+		this->cerveau = new Brain();
+		*this->cerveau = *rhs.cerveau;
         this->type = rhs.type;
     }
     return (*this);

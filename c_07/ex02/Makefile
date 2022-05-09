@@ -6,7 +6,7 @@ RM              = rm -f
 
 CFLAGS          = -Wall -Wextra -Werror -std=c++98 -pedantic -g -fsanitize=address
 
-.c.o:
+.cpp.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o} ${HEADS}
 
 all:		${NAME}

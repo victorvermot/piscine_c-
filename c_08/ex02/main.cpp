@@ -3,6 +3,7 @@
 
 int main()
 {
+	std::cout << "MUTANT STACK ------------------------------------------------" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -28,6 +29,7 @@ int main()
 	std::cout << "Top of copied stack: " <<copiedStack.top() << std::endl;
 	std::stack<int> s(mstack);
 
+	std::cout << "TEST LIST ------------------------------------------------" << std::endl;
 	std::list<int> testList;
 	testList.push_front(5);
 	testList.push_front(17);
